@@ -41,7 +41,7 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
   \log_{10}(k_i) \sim \mathcal{N}(\mu, \sigma^2)
   $$
 
-  where \( k_i \) is the permeability of zone \( i \).  
+  where  $k_i$ is the permeability of zone `i`.  
   Twenty realizations form a 15×20 matrix stored as `perm_all.mat`.
 
 - **Leakage & Fracture Metrics**
@@ -65,8 +65,8 @@ $$
 
   
   where  
-  • `x_t^sim` – simulated value (BHP, pressure, or saturation)  
-  • `x_t^obs` – observed value at timestep `t`
+  • $x_t^sim$ – simulated value (BHP, pressure, or saturation)  
+  • $x_t^obs$ – observed value at timestep `t`
 
 - **Permeability Tuning**
 
