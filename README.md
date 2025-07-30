@@ -17,6 +17,7 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
     - **Best Realization Selection**: Minimizes mismatch between simulation and observed data.
     - **Permeability Updating**: Applies a 15-dimensional zone-wise multiplier vector to tune permeability.
   - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
+  - before ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_BHP_beforeupdate.png)
 
 - **Optimization/**
   - Includes:
