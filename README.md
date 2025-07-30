@@ -102,6 +102,6 @@ Copy
 
 ## ✍️ Author
 
-**Yifan Jiang**  
-Ph.D. Student, University of Southern California  
+**Mingshuo Wang**  
+Master Student, University of Southern California  
 Project Submission Date: May 2023
