@@ -72,9 +72,9 @@ $$
 
   Updated permeability is calculated by:
 
-  $$
-  \mathbf{k}^{\text{updated}} = \mathbf{k}^{\text{best}} \circ \boldsymbol{\alpha}
-  $$
+$$
+\mathbf{k}^{\text{updated}} = \mathbf{k}^{\text{best}} \circ \boldsymbol{\alpha}
+$$
 
   where:
   - \( \circ \) denotes element-wise multiplication
