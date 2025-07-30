@@ -37,9 +37,9 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 
   For each of the 15 permeability zones:
 
-  $$
-  \log_{10}(k_i) \sim \mathcal{N}(\mu, \sigma^2)
-  $$
+$$
+\log_{10}(k_i) \sim \mathcal{N}(\mu, \sigma^2)
+$$
 
   where  $k_i$ is the permeability of zone `i`.  
   Twenty realizations form a 15×20 matrix stored as `perm_all.mat`.
