@@ -1,7 +1,9 @@
 # GEOLOGIC CO₂ STORAGE
 
 ## Overview
-This repository contains models and tools for analyzing and optimizing geologic CO₂ storage, aiming to balance injection efficiency with environmental safety and formation integrity. The project employs various methods to simplify complex geological models, assess risk factors such as leakage and fracturing, and optimize monitoring and injection strategies.
+This project focuses on simulating geologic CO₂ storage over a 6-year period, including both injection and post-injection monitoring phases. The work is structured into three main parts. Risk Assessment evaluates the potential for CO₂ leakage and reservoir fracturing across 20 permeability realizations, using top-layer gas volume and maximum pressure as risk indicators. Model Updating integrates observed well data to identify the most representative simulation realization and adjusts the permeability model via zone-wise multipliers to improve predictive accuracy. Optimization explores improved injection strategies through adjustments to well locations and injection rates, aiming to minimize risks while preserving total injection volumes.
+
+In summary, the model simplification strategy—dividing the reservoir into 15 homogeneous permeability zones—effectively reduces computational complexity and makes the analysis tractable, but may overlook fine-scale heterogeneities critical to flow behavior. A key challenge is the trade-off between minimizing CO₂ leakage and avoiding reservoir fracturing; optimizing for one risk can increase the other. To address this, ensemble simulations and sensitivity analyses were used to quantify uncertainty and identify influential parameters. Ultimately, the combination of forward simulation, history matching, and optimization enables a more robust and risk-aware approach to designing and managing CO₂ storage operations.
 
 ## Repository Structure
 
