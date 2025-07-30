@@ -77,8 +77,9 @@ $$
 $$
 
   where:
-  - \( \circ \) denotes element-wise multiplication
-  - \( \boldsymbol{\alpha} \in \mathbb{R}^{15} \) is the zone-wise multiplier vector
+- $\circ$ denotes element-wise multiplication  
+- $\boldsymbol{\alpha} \in \mathbb{R}^{15}$ is the zone-wise multiplier vector
+
 
 ---
 
