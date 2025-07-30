@@ -65,8 +65,8 @@ $$
 
   
   where  
-  • $x_t^sim$ – simulated value (BHP, pressure, or saturation)  
-  • $x_t^obs$ – observed value at timestep `t`
+  • $x_t^{sim}$ – simulated value (BHP, pressure, or saturation)  
+  • $x_t^{obs}$ – observed value at timestep `t`
 
 - **Permeability Tuning**
 
