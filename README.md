@@ -60,12 +60,13 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
   Mismatch is computed using the L₂ norm or average absolute error:
 
   $$
-  \text{Mismatch} = \frac{1}{N} \sum_{t=1}^{N} \left|x_t^{\text{sim}} - x_t^{\text{obs}}\right|
+  \text{Mismatch} = \frac{1}{N} \sum_{t=1}^{N}
+        \left|\, x_t^{\text{sim}} - x_t^{\text{obs}} \right|
   $$
-
-  where:
-  - \( x_t^{\text{sim}} \): simulated value (BHP, pressure, or saturation)
-  - \( x_t^{\text{obs}} \): observed value at timestep \( t \)
+  
+  where  
+  • `x_t^sim` – simulated value (BHP, pressure, or saturation)  
+  • `x_t^obs` – observed value at timestep `t`
 
 - **Permeability Tuning**
 
