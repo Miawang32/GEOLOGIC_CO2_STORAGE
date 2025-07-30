@@ -21,6 +21,10 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
   - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_BHP_beforeupdate.png)
   - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_PWell_beforeupdate.png)
   - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_SWell_beforeupdate.png)
+  - after
+  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_BHP_4.png)
+  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_PWell_4.png)
+  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_SWell_4.png)
 
 - **Optimization/**
   - Includes:
