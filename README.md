@@ -7,25 +7,13 @@ We simulate the injection, monitoring, and optimization of CO₂ storage in a sy
 
 ---
 
-## 📁 Repository Overview
-
-.
-├── figures/ # All visualization results
-│ ├── perm_map.png # Permeability map (15-layer zonation)
-│ ├── poro_map.png # Porosity map
-│ ├── PB1_B_Realization_.png # Realization plots (Region B)
-│ ├── PB1_C_Realization_.png # Realization plots (Region C)
-│ ├── Q2a_BHPWell.png # Injection well BHP over time
-│ └── Q2d_update_SWell_*.png # Saturation before & after model update
-├── data/ # Simulation output files (.mat)
-├── scripts/ # MATLAB simulation scripts (not shown)
-└── README.md
-
-yaml
-Always show details
-
-Copy
-
+### 📂 Repository Structure 
+```text
+GEOLOGIC_CO2_STORAGE/
+├── Model Updating/      # Ensemble & history-matching scripts (EnKF, adjoints, etc.)
+├── Optimization/        # Injection-schedule & monitoring-design optimisation
+├── Risk Assessment/     # Probabilistic leakage / plume migration analysis
+├── Utils/               # Common helper functions (MRST wrappers, plotting, I/O)
 ---
 
 ## 🔍 Project Tasks
