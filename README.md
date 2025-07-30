@@ -1,95 +1,26 @@
-# 🌍 CO₂ Geologic Storage Simulation & Risk Assessment  
-**PTE-412/464 Final Project – University of Southern California**
+# GEOLOGIC CO₂ STORAGE
 
-This repository presents a comprehensive simulation study of geologic CO₂ storage, completed as the final project for the PTE-412/464 course "Modeling, Simulation, and Management of Subsurface Flow Systems", instructed by Prof. Behnam Jafarpour at USC.
+## Overview
+This repository contains models and tools for analyzing and optimizing geologic CO₂ storage, aiming to balance injection efficiency with environmental safety and formation integrity. The project employs various methods to simplify complex geological models, assess risk factors such as leakage and fracturing, and optimize monitoring and injection strategies.
 
-We simulate the injection, monitoring, and optimization of CO₂ storage in a synthetic reservoir under geological uncertainty, evaluate leakage and fracturing risks, and perform model updating with observation data.
+## Repository Structure
 
----
+- **Model Updating/**  
+  Scripts for ensemble and history-matching methods, including Ensemble Kalman Filter (EnKF) and adjoint techniques, aimed at quantifying uncertainty in model predictions.
 
-### 📂 Repository Structure 
-```text
-GEOLOGIC_CO2_STORAGE/
-├── Model Updating/      # Ensemble & history-matching scripts (EnKF, adjoints, etc.)
-├── Optimization/        # Injection-schedule & monitoring-design optimisation
-├── Risk Assessment/     # Probabilistic leakage / plume migration analysis
-├── Utils/               # Common helper functions (MRST wrappers, plotting, I/O)
----
+- **Optimization/**  
+  Tools for optimizing injection schedules and monitoring designs. These include optimization algorithms that efficiently explore solution spaces to identify optimal combinations of well controls and locations.
 
-## 🔍 Project Tasks
+- **Risk Assessment/**  
+  Probabilistic analysis tools for evaluating risks associated with CO₂ leakage and plume migration, essential for prioritizing environmental safety and formation integrity.
 
-### 1. Risk Assessment
-- Simulated 20 permeability realizations for a 15-layer reservoir using Monte Carlo sampling.
-- Evaluated CO₂ plume migration, pressure build-up, and storage distribution.
-- Quantified risks of:
-  - **Leakage**: via CO₂ volume in top layer.
-  - **Fracturing**: via max pore pressure.
+- **Utils/**  
+  Helper functions and wrappers supporting the main analytical workflows, including plotting utilities, input/output operations, and interfaces with MRST (Matlab Reservoir Simulation Toolbox).
 
-### 2. Model Updating
-- Compared simulated data with synthetic field measurements from injection/observation wells.
-- Identified best-matching realization.
-- Updated permeability multipliers to improve history match.
+## Key Methodologies
+- **Model Simplification:** Reducing computational complexity for efficient analysis.
+- **Ensemble-Based Uncertainty Quantification:** Generating multiple permeability realizations to evaluate prediction uncertainties.
+- **Sensitivity Analysis:** Identifying influential parameters to prioritize data collection and reduce model uncertainty.
+- **Optimization Algorithms:** Balancing risk of leakage versus risk of fracturing by efficiently exploring well configurations.
 
-### 3. Optimization (Optional for Extension)
-- Well placement and injection rate adjustment to minimize leakage and fracturing simultaneously.
-
----
-
-## 🧠 Key Concepts
-- Monte Carlo Sampling (20 realizations × 15-layer zonation)
-- Risk Indicators: top-layer CO₂ saturation & pressure maxima
-- Ensemble history matching
-- Pressure/Saturation monitoring
-- Uncertainty quantification
-
----
-
-## 📊 Sample Visualizations
-
-### 🗺️ Permeability & Porosity Maps
-| Permeability | Porosity |
-|--------------|----------|
-| ![](figures/perm_map.png) | ![](figures/poro_map.png) |
-
----
-
-### 🔁 Realization Results (B Region)
-| Realization 1 | Realization 2 | Realization 3 |
-|---------------|---------------|---------------|
-| ![](figures/PB1_B_Realization_1.png) | ![](figures/PB1_B_Realization_2.png) | ![](figures/PB1_B_Realization_3.png) |
-
----
-
-### 🔄 Realization Results (C Region)
-| Realization 4 | Realization 5 | Realization 6 |
-|---------------|---------------|---------------|
-| ![](figures/PB1_C_Realization_4.png) | ![](figures/PB1_C_Realization_5.png) | ![](figures/PB1_C_Realization_6.png) |
-
----
-
-### 📉 Bottom-Hole Pressure at Injection Well
-![](figures/Q2a_BHPWell.png)
-
----
-
-### 🔁 Saturation Evolution During Model Updating
-| SWell 1 | SWell 2 | SWell 3 |
-|---------|---------|---------|
-| ![](figures/Q2d_update_SWell_1.png) | ![](figures/Q2d_update_SWell_2.png) | ![](figures/Q2d_update_SWell_3.png) |
-
----
-
-## 📚 Course Information
-- **Course**: PTE-412/464 – Modeling & Simulation of Subsurface Flow Systems  
-- **Instructor**: Prof. Behnam Jafarpour  
-- **Term**: Spring 2023  
-- **University**: University of Southern California (USC)  
-- **Project Type**: Final Individual Project – CO₂ Storage Track  
-
----
-
-## ✍️ Author
-
-**Mingshuo Wang**  
-Master Student, University of Southern California  
-Project Submission Date: May 2023
+This repository provides comprehensive resources for researchers and engineers working on efficient, safe, and environmentally responsible geologic CO₂ storage solutions.
