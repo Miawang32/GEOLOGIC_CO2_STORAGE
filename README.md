@@ -1,27 +1,103 @@
 # GEOLOGIC CO₂ STORAGE
 
 ## Overview
-This project focuses on simulating geologic CO₂ storage over a 6-year period, including both injection and post-injection monitoring phases. The work is structured into three main parts. Risk Assessment evaluates the potential for CO₂ leakage and reservoir fracturing across 20 permeability realizations, using top-layer gas volume and maximum pressure as risk indicators. Model Updating integrates observed well data to identify the most representative simulation realization and adjusts the permeability model via zone-wise multipliers to improve predictive accuracy. Optimization explores improved injection strategies through adjustments to well locations and injection rates, aiming to minimize risks while preserving total injection volumes.
+This project simulates geologic CO₂ storage over a 6-year lifecycle, comprising 4 years of injection and 2 years of post-injection monitoring. The workflow includes **Risk Assessment**, **Model Updating**, and **Optimization**, each involving data-driven simulation and decision-making techniques. A simplified reservoir model divided into 15 homogeneous permeability zones is used throughout. Key challenges addressed include quantifying uncertainty in geological parameters, mitigating CO₂ leakage and fracturing risks, and improving predictive accuracy via model calibration and optimization.
+
+---
 
 ## Repository Structure
 
-- **Model Updating/**  
-  Scripts for ensemble and history-matching methods, including Ensemble Kalman Filter (EnKF) and adjoint techniques, aimed at quantifying uncertainty in model predictions.
+- **Risk Assessment/**
+  - Monte Carlo simulations with 20 permeability realizations generated via Gaussian sampling.
+  - Scripts to compute top-layer CO₂ volume (leakage indicator) and maximum reservoir pressure (fracturing risk).
+  - Histograms and spatial maps to visualize and quantify uncertainties.
 
-- **Optimization/**  
-  Tools for optimizing injection schedules and monitoring designs. These include optimization algorithms that efficiently explore solution spaces to identify optimal combinations of well controls and locations.
+- **Model Updating/**
+  - Implements a two-stage history-matching process:
+    - **Best Realization Selection**: Minimizes mismatch between simulation and observed data.
+    - **Permeability Updating**: Applies a 15-dimensional zone-wise multiplier vector to tune permeability.
+  - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
 
-- **Risk Assessment/**  
-  Probabilistic analysis tools for evaluating risks associated with CO₂ leakage and plume migration, essential for prioritizing environmental safety and formation integrity.
+- **Optimization/**
+  - Includes:
+    - **Well Placement Optimization**: Brute-force search over at least 10 possible two-well configurations.
+    - **Injection Rate Optimization**: Dynamic adjustment under fixed total injection volume (1 Mt/year).
+  - Goal: Simultaneously minimize top-layer CO₂ volume and max pressure while maintaining injection goals.
 
-- **Utils/**  
-  Helper functions and wrappers supporting the main analytical workflows, including plotting utilities, input/output operations, and interfaces with MRST (Matlab Reservoir Simulation Toolbox).
+- **Utils/**
+  - Utility scripts and wrappers for plotting, loading `.mat` files, running MRST-based simulations, and saving results.
 
-## Key Methodologies
-- **Model Simplification:** Reducing computational complexity for efficient analysis.
-- **Ensemble-Based Uncertainty Quantification:** Generating multiple permeability realizations to evaluate prediction uncertainties.
-- **Sensitivity Analysis:** Identifying influential parameters to prioritize data collection and reduce model uncertainty.
-- **Optimization Algorithms:** Balancing risk of leakage versus risk of fracturing by efficiently exploring well configurations.
+---
 
-## Conclusion 
-In summary, the model simplification strategy—dividing the reservoir into 15 homogeneous permeability zones—effectively reduces computational complexity and makes the analysis tractable, but may overlook fine-scale heterogeneities critical to flow behavior. A key challenge is the trade-off between minimizing CO₂ leakage and avoiding reservoir fracturing; optimizing for one risk can increase the other. To address this, ensemble simulations and sensitivity analyses were used to quantify uncertainty and identify influential parameters. Ultimately, the combination of forward simulation, history matching, and optimization enables a more robust and risk-aware approach to designing and managing CO₂ storage operations.
+## Key Methodologies and Algorithms
+
+### Risk Assessment
+
+- **Realization Generation**
+
+  For each of the 15 permeability zones:
+
+  $$
+  \log_{10}(k_i) \sim \mathcal{N}(\mu, \sigma^2)
+  $$
+
+  where \( k_i \) is the permeability of zone \( i \).  
+  Twenty realizations form a 15×20 matrix stored as `perm_all.mat`.
+
+- **Leakage & Fracture Metrics**
+
+  - **Leakage potential** ∝ CO₂ volume in the first (top) layer.
+  - **Fracture risk** ∝ maximum pressure in the reservoir.
+
+  Both metrics are visualized via histograms and stored as `co2_volume_all` and `max_pressure_all`.
+
+---
+
+### Model Updating
+
+- **Mismatch Metric**
+
+  Mismatch is computed using the L₂ norm or average absolute error:
+
+  $$
+  \text{Mismatch} = \frac{1}{N} \sum_{t=1}^{N} \left|x_t^{\text{sim}} - x_t^{\text{obs}}\right|
+  $$
+
+  where:
+  - \( x_t^{\text{sim}} \): simulated value (BHP, pressure, or saturation)
+  - \( x_t^{\text{obs}} \): observed value at timestep \( t \)
+
+- **Permeability Tuning**
+
+  Updated permeability is calculated by:
+
+  $$
+  \mathbf{k}^{\text{updated}} = \mathbf{k}^{\text{best}} \circ \boldsymbol{\alpha}
+  $$
+
+  where:
+  - \( \circ \) denotes element-wise multiplication
+  - \( \boldsymbol{\alpha} \in \mathbb{R}^{15} \) is the zone-wise multiplier vector
+
+---
+
+### Optimization
+
+- **Well Relocation**
+  - Minimum 8 grid-block spacing between the two injection wells.
+  - Simulate at least 10 different well placements.
+  - Evaluate risk metrics (CO₂ leakage and max pressure).
+  - Visualize CO₂ plume migration and well locations in 3D.
+
+- **Injection Rate Allocation**
+  - Total injection rate is fixed at 1 Mt/year.
+  - Dynamically reallocate between the two wells to reduce risks.
+  - Save and plot:
+    - Time-varying injection rates
+    - Time-varying risk values (top-layer CO₂ volume and max pressure)
+
+---
+
+## Conclusion
+
+This project provides a structured approach to managing uncertainty and optimizing performance in geologic CO₂ storage. The 15-zone simplification balances realism and tractability. Probabilistic simulations help identify potential leakage and fracturing risks, while history-matching techniques enable model calibration. Well placement and injection rate optimization show how to mitigate trade-offs between competing risks. Overall, this framework supports safe, efficient, and data-informed CO₂ sequestration strategies.
