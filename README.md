@@ -14,17 +14,33 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 
 - **Model Updating/**
   - Implements a two-stage history-matching process:
-    - **Best Realization Selection**: Minimizes mismatch between simulation and observed data.
-    - **Permeability Updating**: Applies a 15-dimensional zone-wise multiplier vector to tune permeability.
+    - **Best Realization Selection** – minimizes mismatch between simulation and observed data.
+    - **Permeability Updating** – applies a 15-zone multiplier vector to tune permeability.
   - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
-  - before
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_BHP_beforeupdate.png)
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_PWell_beforeupdate.png)
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/before/update_SWell_beforeupdate.png)
-  - after
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_BHP_4.png)
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_PWell_4.png)
-  - ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/after/update_SWell_4.png)
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center">Before update</th>
+      <th style="text-align:center">After update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><img src="resources/before/update_BHP_beforeupdate.png" width="300"/></td>
+      <td align="center"><img src="resources/after/update_BHP_4.png"        width="300"/></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="resources/before/update_PWell_beforeupdate.png" width="300"/></td>
+      <td align="center"><img src="resources/after/update_PWell_4.png"        width="300"/></td>
+    </tr>
+    <tr>
+      <td align="center"><img src="resources/before/update_SWell_beforeupdate.png" width="300"/></td>
+      <td align="center"><img src="resources/after/update_SWell_4.png"        width="300"/></td>
+    </tr>
+  </tbody>
+</table>
+
 
 - **Optimization/**
   - Includes:
