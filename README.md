@@ -36,6 +36,9 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 
 
 - **Optimization/**
+  - **Well Placement Optimization**: Brute-force search over at least 10 possible two-well configurations.
+  - **Injection Rate Optimization**: Dynamic adjustment under fixed total injection volume (1 Mt/year).
+  - **Goal**: Simultaneously minimize top-layer CO₂ volume and max pressure while maintaining injection goals.
 
     <div align="center">
 
@@ -69,8 +72,7 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
       </table>
     </div>
 
-    <p><strong>Goal:</strong> Simultaneously minimize top-layer CO₂ volume and maximum pressure while maintaining the total injection target (1 Mt yr⁻¹).</p>
-
+  
     </div>
 
  
