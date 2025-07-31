@@ -7,8 +7,8 @@
 ---
 
 ## 📑 Table of Contents
-1. [Overview](#🌍overview)
-2. [Repository Structure](#🗂️repository-structure)
+1. [Overview](#overview)
+2. [Repository Structure](#repository-structure)
 3. [Key Methodologies](#key-methodologies)
    - [Risk Assessment](#risk-assessment)
    - [Model Updating](#model-updating)
@@ -17,7 +17,7 @@
 
 ---
 
-## 🌍 Overview
+<h2 id="overview">🌍 Overview</h2>
 This repository contains the end-to-end workflow used in our study  
 on **geologic CO₂ storage** over a six-year life-cycle:
 
