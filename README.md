@@ -141,7 +141,7 @@ Algorithm notes:
 ---
 
 <h2 id ="conclusion">🏁 Conclusion</h2>
-Our integrated workflow delivers a **robust, data‑informed roadmap** for CO₂ sequestration:
+Our integrated workflow delivers a *robust, data‑informed roadmap* for CO₂ sequestration:
 
 * **Probabilistic screening** reveals leakage & fracturing envelopes.  
 * **Zone‑wise history matching** reduces predictive variance.  
