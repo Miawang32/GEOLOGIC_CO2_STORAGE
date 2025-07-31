@@ -1,157 +1,131 @@
-# GEOLOGIC CO₂ STORAGE
+# 🏔️ GEOLOGIC CO₂ STORAGE  
+<sub><sup>Six-year simulation • Risk assessment • History matching • Optimization</sup></sub>
 
-## Overview
-This project simulates geologic CO₂ storage over a 6-year lifecycle, comprising 4 years of injection and 2 years of post-injection monitoring. The workflow includes **Risk Assessment**, **Model Updating**, and **Optimization**, each involving data-driven simulation and decision-making techniques. A simplified reservoir model divided into 15 homogeneous permeability zones is used throughout. Key challenges addressed include quantifying uncertainty in geological parameters, mitigating CO₂ leakage and fracturing risks, and improving predictive accuracy via model calibration and optimization.
-
----
-
-## Repository Structure
-
-- **Risk Assessment/**
-  - Monte Carlo simulations with 20 permeability realizations generated via Gaussian sampling.
-  - Scripts to compute top-layer CO₂ volume (leakage indicator) and maximum reservoir pressure (fracturing risk).
-  - Histograms and spatial maps to visualize and quantify uncertainties.
-
-- **Model Updating/**
-  - Implements a two-stage history-matching process:
-    - **Best Realization Selection** – minimizes mismatch between simulation and observed data.
-    - **Permeability Updating** – applies a 15-zone multiplier vector to tune permeability.
-  - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
-
-
-
-  **Before**
-
-  | BHP | P-Well | S-Well |
-  |:---:|:------:|:------:|
-  | ![](resources/before/update_BHP_beforeupdate.png) | ![](resources/before/update_PWell_beforeupdate.png) | ![](resources/before/update_SWell_beforeupdate.png) |
-
-  **After**
-
-  | BHP | P-Well | S-Well |
-  |:---:|:------:|:------:|
-  | ![](resources/after/update_BHP_4.png) | ![](resources/after/update_PWell_4.png) | ![](resources/after/update_SWell_4.png) |
-
-
-
-
-- **Optimization/**
-  - **Well Placement Optimization**: Brute-force search over at least 10 possible two-well configurations.
-  - **Injection Rate Optimization**: Dynamic adjustment under fixed total injection volume (1 Mt/year).
-  - **Goal**: Simultaneously minimize top-layer CO₂ volume and max pressure while maintaining injection goals.
-
-    <div align="center">
-
-    <!-- ---------- Well Placement ---------- -->
-    <div style="display:inline-block; margin:1rem; border:1px solid #e1e4e8; border-radius:6px; padding:1rem; width:95%;">
-      <h4 align="left">🚩 Well Placement Optimization</h4>
-      <table>
-        <tr>
-          <td align="center"><img src="resources/optima/perm_udLocation_map_1.png" width="45%"/></td>
-          <td align="center"><img src="resources/optima/plume_udLocation_1.png" width="45%"/></td>
-        </tr>
-        <tr>
-          <td align="center"><em>Permeability map with new well locations</em></td>
-          <td align="center"><em>CO₂ plume migration (top view)</em></td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- ---------- Injection Rate ---------- -->
-    <div style="display:inline-block; margin:1rem; border:1px solid #e1e4e8; border-radius:6px; padding:1rem; width:95%;">
-      <h4 align="left">💧 Injection Rate Optimization</h4>
-      <table>
-        <tr>
-          <td align="center"><img src="resources/untitled%20folder/Rate.png" width="45%"/></td>
-          <td align="center"><img src="resources/untitled%20folder/CO2_leakage%20.png" width="45%"/></td>
-        </tr>
-        <tr>
-          <td align="center"><em>Rate allocation over time</em></td>
-          <td align="center"><em>CO₂ leakage risk trajectory</em></td>
-        </tr>
-      </table>
-    </div>
-
-  
-    </div>
-
- 
-- **Utils/**
-  - Utility scripts and wrappers for plotting, loading `.mat` files, running MRST-based simulations, and saving results.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-green.svg)](#)
+[![MRST](https://img.shields.io/badge/MRST-version-tested-2022a-orange.svg)](#)
 
 ---
 
-## Key Methodologies and Algorithms
+## 📑 Table of Contents
+1. [Overview](#overview)
+2. [Repository Structure](#repository-structure)
+3. [Key Methodologies](#key-methodologies)
+   - [Risk Assessment](#risk-assessment)
+   - [Model Updating](#model-updating)
+   - [Optimization](#optimization)
+4. [Conclusion](#conclusion)
+
+---
+
+## 🌍 Overview
+This project simulates **geologic CO₂ storage** over a six-year life-cycle  
+(4 yr injection ➜ 2 yr post-injection monitoring).  
+The workflow integrates
+
+| Stage | Purpose | Highlights |
+|-------|---------|------------|
+| **Risk Assessment** | Quantify leakage & fracturing risks | 20 permeability realizations, uncertainty histograms |
+| **Model Updating** | Calibrate model to field data | Two-stage history matching, 15-zone multipliers |
+| **Optimization** | Improve storage performance | Well placement & injection-rate scheduling |
+
+A simplified reservoir model with **15 homogeneous permeability zones** underpins all simulations.  
+Key challenges addressed: uncertainty quantification, risk mitigation, and predictive-accuracy enhancement.
+
+---
+
+## 🗂️ Repository Structure
+
+GEOLOGIC_CO2_STORAGE/
+├── Risk Assessment/ # Probabilistic leakage / pressure analysis
+├── Model Updating/ # Two-stage history matching
+├── Optimization/ # Well & rate optimisation scripts
+├── Utils/ # MRST helpers, plotting, I/O
+└── ...
+
+
+| Folder | Core Content |
+|--------|--------------|
+| **Risk Assessment/** | • 20 Monte-Carlo permeability realizations<br>• CO₂-volume & pressure metrics<br>• Uncertainty visualisation |
+| **Model Updating/**  | • Best-realization selection<br>• 15-zone permeability multipliers<br>• Before/after BHP & saturation plots |
+| **Optimization/**    | • Brute-force two-well placement search (≥10 configs)<br>• Dynamic rate allocation (1 Mt yr⁻¹ total)<br>• Trade-off analysis |
+| **Utils/**           | Plotting, `.mat` loaders, MRST wrappers |
+
+---
+
+## 🔬 Key Methodologies
 
 ### Risk Assessment
+1. **Permeability Realizations**  
+   $$\log_{10}(k_i)\sim\mathcal N(\mu,\sigma^2),\qquad i=1,\dots,15$$  
+   Stored in `perm_all.mat` (shape 15 × 20).
 
-- **Realization Generation**
-
-  For each of the 15 permeability zones:
-
-$$
-\log_{10}(k_i) \sim \mathcal{N}(\mu, \sigma^2)
-$$
-
-  where  $k_i$ is the permeability of zone `i`.  
-  Twenty realizations form a 15×20 matrix stored as `perm_all.mat`.
-
-- **Leakage & Fracture Metrics**
-
-  - **Leakage potential** ∝ CO₂ volume in the first (top) layer.
-  - **Fracture risk** ∝ maximum pressure in the reservoir.
-
-  Both metrics are visualized via histograms and stored as `co2_volume_all` and `max_pressure_all`.
-
----
+2. **Risk Metrics**  
+   | Metric | Proxy | File |
+   |--------|-------|------|
+   | Leakage potential | CO₂ volume in top layer | `co2_volume_all.mat` |
+   | Fracture risk | Maximum reservoir pressure | `max_pressure_all.mat` |
 
 ### Model Updating
+* **Mismatch** (per timestep \(t\))  
+  $$\text{Mismatch}=\frac1N\sum_{t=1}^{N}\lvert x_t^{\text{sim}}-x_t^{\text{obs}}\rvert$$
 
-- **Mismatch Metric**
+* **Permeability Tuning**  
+  $$\mathbf k^{\text{updated}}=\mathbf k^{\text{best}}\circ\boldsymbol\alpha,\qquad
+  \boldsymbol\alpha\in\mathbb R^{15}$$
 
-  Mismatch is computed using the L₂ norm or average absolute error:
+<div align="center">
 
-$$
-\text{Mismatch} = \frac{1}{N} \sum_{t=1}^{N} \left|\ x_t^{\text{sim}} - x_t^{\text{obs}}\right|
-$$
+| **Before** | | |
+|:--:|:--:|:--:|
+| ![](resources/before/update_BHP_beforeupdate.png) | ![](resources/before/update_PWell_beforeupdate.png) | ![](resources/before/update_SWell_beforeupdate.png) |
 
-  
-  where  
-  • $x_t^{sim}$ – simulated value (BHP, pressure, or saturation)  
-  • $x_t^{obs}$ – observed value at timestep `t`
+| **After** | | |
+|:--:|:--:|:--:|
+| ![](resources/after/update_BHP_4.png) | ![](resources/after/update_PWell_4.png) | ![](resources/after/update_SWell_4.png) |
 
-- **Permeability Tuning**
-
-  Updated permeability is calculated by:
-
-$$
-\mathbf{k}^{\text{updated}} = \mathbf{k}^{\text{best}} \circ \boldsymbol{\alpha}
-$$
-
-  where:
-- $\circ$ denotes element-wise multiplication  
-- $\boldsymbol{\alpha} \in \mathbb{R}^{15}$ is the zone-wise multiplier vector
-
-
----
+</div>
 
 ### Optimization
+<div align="center">
 
-- **Well Relocation**
-  - Minimum 8 grid-block spacing between the two injection wells.
-  - Simulate at least 10 different well placements.
-  - Evaluate risk metrics (CO₂ leakage and max pressure).
-  - Visualize CO₂ plume migration and well locations in 3D.
+#### 🚩 Well Placement Optimization
+<table>
+  <tr>
+    <td align="center"><img src="resources/optima/perm_udLocation_map_1.png" width="45%"></td>
+    <td align="center"><img src="resources/optima/plume_udLocation_1.png" width="45%"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Permeability map & new wells</em></td>
+    <td align="center"><em>CO₂ plume (top view)</em></td>
+  </tr>
+</table>
 
-- **Injection Rate Allocation**
-  - Total injection rate is fixed at 1 Mt/year.
-  - Dynamically reallocate between the two wells to reduce risks.
-  - Save and plot:
-    - Time-varying injection rates
-    - Time-varying risk values (top-layer CO₂ volume and max pressure)
+#### 💧 Injection Rate Optimization
+<table>
+  <tr>
+    <td align="center"><img src="resources/untitled%20folder/Rate.png" width="45%"></td>
+    <td align="center"><img src="resources/untitled%20folder/CO2_leakage%20.png" width="45%"></td>
+  </tr>
+  <tr>
+    <td align="center"><em>Rate allocation</em></td>
+    <td align="center"><em>Leakage-risk trajectory</em></td>
+  </tr>
+</table>
+
+</div>
 
 ---
 
-## Conclusion
+## 🏁 Conclusion
+This framework offers a **data-informed, end-to-end workflow** for safe and efficient CO₂ sequestration:
 
-This project provides a structured approach to managing uncertainty and optimizing performance in geologic CO₂ storage. The 15-zone simplification balances realism and tractability. Probabilistic simulations help identify potential leakage and fracturing risks, while history-matching techniques enable model calibration. Well placement and injection rate optimization show how to mitigate trade-offs between competing risks. Overall, this framework supports safe, efficient, and data-informed CO₂ sequestration strategies.
+* **Uncertainty-aware risk screening** pinpoints leakage & fracturing hotspots.  
+* **History matching** narrows model uncertainty via zone-wise permeability tuning.  
+* **Dual-objective optimisation** balances injection efficiency against environmental risk.
+
+> **Takeaway:** Integrating probabilistic simulations with adaptive optimisation markedly enhances predictive reliability and operational safety in geologic CO₂ storage projects.
+
+---
+
+*Made with ❤️ & MRST.*
