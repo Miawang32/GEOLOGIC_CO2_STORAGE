@@ -18,8 +18,7 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
     - **Permeability Updating** – applies a 15-zone multiplier vector to tune permeability.
   - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
 
-<details>
-  <summary><strong>Show before/after plots ▶</strong></summary>
+
 
   **Before**
 
@@ -33,7 +32,6 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
   |:---:|:------:|:------:|
   | ![](resources/after/update_BHP_4.png) | ![](resources/after/update_PWell_4.png) | ![](resources/after/update_SWell_4.png) |
 
-</details>
 
 
 
