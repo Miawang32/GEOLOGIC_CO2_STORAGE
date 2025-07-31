@@ -2,9 +2,7 @@
 # 🏔️ GEOLOGIC CO₂ STORAGE  
 <sub><sup>Six-year simulation • Risk assessment • History matching • Optimization</sup></sub>
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%2B-green.svg)](#)
-[![MRST](https://img.shields.io/badge/MRST-tested%20on-2022a-orange.svg)](#)
+
 
 ---
 
@@ -153,4 +151,3 @@ Our integrated workflow delivers a **robust, data‑informed roadmap** for CO₂
 
 ---
 
-*Made with ❤️, MATLAB + MRST, and a dash of Python.*
