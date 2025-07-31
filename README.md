@@ -4,7 +4,10 @@
 
 Closed-loop reservoir management (CLRM) is the gold standard for safe geologic CO₂ storage, but full-scale implementations demand massive data and HPC resources. We present a lightweight CLRM prototype—15-zone model, Monte-Carlo risk screen, two-stage history match, and dual-objective well-rate optimisation—to prove the concept within tight time and compute limits, while keeping the workflow extensible for higher-fidelity upgrades later.
 
-![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/big_picture.jpg)
+<p align="center">
+  <img src="https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/big_picture.jpg" width="40%">
+</p>
+
 
 ---
 
