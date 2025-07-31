@@ -39,7 +39,7 @@ The key challenges we tackle are:
 
 ---
 
-## 🗂️ Repository Structure
+<h2 id="repository-structure">🗂️ Repository Structure</h2>
 
 ```text
 GEOLOGIC_CO2_STORAGE/
