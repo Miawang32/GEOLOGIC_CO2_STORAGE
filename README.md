@@ -36,8 +36,6 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 
 
 - **Optimization/**
-  <details>
-    <summary><strong>Click to expand optimization results ▶</strong></summary>
 
     <div align="center">
 
@@ -74,7 +72,6 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
     <p><strong>Goal:</strong> Simultaneously minimize top-layer CO₂ volume and maximum pressure while maintaining the total injection target (1 Mt yr⁻¹).</p>
 
     </div>
-  </details>
 
  
 - **Utils/**
