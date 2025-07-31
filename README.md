@@ -18,28 +18,23 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
     - **Permeability Updating** – applies a 15-zone multiplier vector to tune permeability.
   - Visual comparisons of field data vs. simulations (before and after update) for BHP, pore pressure, and saturation.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:center">Before update</th>
-      <th style="text-align:center">After update</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><img src="resources/before/update_BHP_beforeupdate.png" width="300"/></td>
-      <td align="center"><img src="resources/after/update_BHP_4.png"        width="300"/></td>
-    </tr>
-    <tr>
-      <td align="center"><img src="resources/before/update_PWell_beforeupdate.png" width="300"/></td>
-      <td align="center"><img src="resources/after/update_PWell_4.png"        width="300"/></td>
-    </tr>
-    <tr>
-      <td align="center"><img src="resources/before/update_SWell_beforeupdate.png" width="300"/></td>
-      <td align="center"><img src="resources/after/update_SWell_4.png"        width="300"/></td>
-    </tr>
-  </tbody>
-</table>
+<details>
+  <summary><strong>Show before/after plots ▶</strong></summary>
+
+  **Before**
+
+  | BHP | P-Well | S-Well |
+  |:---:|:------:|:------:|
+  | ![](resources/before/update_BHP_beforeupdate.png) | ![](resources/before/update_PWell_beforeupdate.png) | ![](resources/before/update_SWell_beforeupdate.png) |
+
+  **After**
+
+  | BHP | P-Well | S-Well |
+  |:---:|:------:|:------:|
+  | ![](resources/after/update_BHP_4.png) | ![](resources/after/update_PWell_4.png) | ![](resources/after/update_SWell_4.png) |
+
+</details>
+
 
 
 - **Optimization/**
