@@ -1,9 +1,6 @@
 # 🏔️ GEOLOGIC CO₂ STORAGE  
 <sub><sup>Six-year simulation • Risk assessment • History matching • Optimization</sup></sub>
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%2B-green.svg)](#)
-[![MRST](https://img.shields.io/badge/MRST-version-tested-2022a-orange.svg)](#)
 
 ---
 
