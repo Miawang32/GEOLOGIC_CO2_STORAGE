@@ -59,7 +59,7 @@ GEOLOGIC_CO2_STORAGE/
 
 ---
 
-## 🔬 Key Methodologies
+<h2 id="key-methodologies">🔬 Key Methodologies</h2>
 
 ### Risk Assessment
 We propagate geological uncertainty by sampling **20 log‑normal permeability realisations** for each of the 15 zones:
@@ -140,7 +140,7 @@ Algorithm notes:
 
 ---
 
-## 🏁 Conclusion
+<h2 id ="conclusion">🏁 Conclusion</h2>
 Our integrated workflow delivers a **robust, data‑informed roadmap** for CO₂ sequestration:
 
 * **Probabilistic screening** reveals leakage & fracturing envelopes.  
