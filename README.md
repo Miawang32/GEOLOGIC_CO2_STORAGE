@@ -38,9 +38,13 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 - **Optimization/**
   - Includes:
     - **Well Placement Optimization**: Brute-force search over at least 10 possible two-well configurations.
+      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/optima/perm_udLocation_map_1.png)
+      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/optima/plume_udLocation_1.png)
     - **Injection Rate Optimization**: Dynamic adjustment under fixed total injection volume (1 Mt/year).
+      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/untitled%20folder/Rate.png)
+      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/untitled%20folder/CO2_leakage%20.png)
   - Goal: Simultaneously minimize top-layer CO₂ volume and max pressure while maintaining injection goals.
-
+ 
 - **Utils/**
   - Utility scripts and wrappers for plotting, loading `.mat` files, running MRST-based simulations, and saving results.
 
