@@ -47,7 +47,6 @@ GEOLOGIC_CO2_STORAGE/
 ├── Model Updating/       # Two-stage history matching
 ├── Optimization/         # Well & rate optimisation scripts
 ├── Utils/                # MRST helpers, plotting, I/O
-└── ...
 ```
 
 | Folder | Core Content |
