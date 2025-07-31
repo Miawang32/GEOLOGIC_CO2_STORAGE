@@ -23,6 +23,7 @@ Closed-loop reservoir management (CLRM) is the gold standard for safe geologic C
 ---
 
 <h2 id="overview">🌍 Overview</h2>
+
 This repository contains the end-to-end workflow used in our study  
 on **geologic CO₂ storage** over a six-year life-cycle:
 
