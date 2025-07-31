@@ -8,7 +8,7 @@
 
 ## 📑 Table of Contents
 1. [Overview](#🌍overview)
-2. [Repository Structure](#repository-structure)
+2. [Repository Structure](#🗂️repository-structure)
 3. [Key Methodologies](#key-methodologies)
    - [Risk Assessment](#risk-assessment)
    - [Model Updating](#model-updating)
