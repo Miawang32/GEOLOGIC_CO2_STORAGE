@@ -36,14 +36,46 @@ This project simulates geologic CO₂ storage over a 6-year lifecycle, comprisin
 
 
 - **Optimization/**
-  - Includes:
-    - **Well Placement Optimization**: Brute-force search over at least 10 possible two-well configurations.
-      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/optima/perm_udLocation_map_1.png)
-      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/optima/plume_udLocation_1.png)
-    - **Injection Rate Optimization**: Dynamic adjustment under fixed total injection volume (1 Mt/year).
-      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/untitled%20folder/Rate.png)
-      ![image](https://github.com/Miawang32/GEOLOGIC_CO2_STORAGE/blob/main/resources/untitled%20folder/CO2_leakage%20.png)
-  - Goal: Simultaneously minimize top-layer CO₂ volume and max pressure while maintaining injection goals.
+  <details>
+    <summary><strong>Click to expand optimization results ▶</strong></summary>
+
+    <div align="center">
+
+    <!-- ---------- Well Placement ---------- -->
+    <div style="display:inline-block; margin:1rem; border:1px solid #e1e4e8; border-radius:6px; padding:1rem; width:95%;">
+      <h4 align="left">🚩 Well Placement Optimization</h4>
+      <table>
+        <tr>
+          <td align="center"><img src="resources/optima/perm_udLocation_map_1.png" width="45%"/></td>
+          <td align="center"><img src="resources/optima/plume_udLocation_1.png" width="45%"/></td>
+        </tr>
+        <tr>
+          <td align="center"><em>Permeability map with new well locations</em></td>
+          <td align="center"><em>CO₂ plume migration (top view)</em></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ---------- Injection Rate ---------- -->
+    <div style="display:inline-block; margin:1rem; border:1px solid #e1e4e8; border-radius:6px; padding:1rem; width:95%;">
+      <h4 align="left">💧 Injection Rate Optimization</h4>
+      <table>
+        <tr>
+          <td align="center"><img src="resources/untitled%20folder/Rate.png" width="45%"/></td>
+          <td align="center"><img src="resources/untitled%20folder/CO2_leakage%20.png" width="45%"/></td>
+        </tr>
+        <tr>
+          <td align="center"><em>Rate allocation over time</em></td>
+          <td align="center"><em>CO₂ leakage risk trajectory</em></td>
+        </tr>
+      </table>
+    </div>
+
+    <p><strong>Goal:</strong> Simultaneously minimize top-layer CO₂ volume and maximum pressure while maintaining the total injection target (1 Mt yr⁻¹).</p>
+
+    </div>
+  </details>
+
  
 - **Utils/**
   - Utility scripts and wrappers for plotting, loading `.mat` files, running MRST-based simulations, and saving results.
