@@ -33,14 +33,14 @@ Key challenges addressed: uncertainty quantification, risk mitigation, and predi
 
 ## 🗂️ Repository Structure
 
-···
+```
 GEOLOGIC_CO2_STORAGE/
 ├── Risk Assessment/ # Probabilistic leakage / pressure analysis
 ├── Model Updating/ # Two-stage history matching
 ├── Optimization/ # Well & rate optimisation scripts
 ├── Utils/ # MRST helpers, plotting, I/O
 └── ...
-···
+```
 
 
 | Folder | Core Content |
